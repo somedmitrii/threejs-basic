@@ -2,6 +2,7 @@ import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import * as dat from "lil-gui";
 
+import { cubes } from "./cubes";
 import "./style.css";
 
 /**
@@ -21,21 +22,7 @@ const scene = new THREE.Scene();
  */
 const textureLoader = new THREE.TextureLoader();
 
-const sphere = new THREE.Mesh(
-  new THREE.SphereGeometry(1, 32, 32),
-  new THREE.MeshStandardMaterial({ roughness: 0.7 })
-);
-sphere.position.y = 1;
-scene.add(sphere);
-
-// Floor
-const floor = new THREE.Mesh(
-  new THREE.PlaneGeometry(20, 20),
-  new THREE.MeshStandardMaterial({ color: "#a9c388" })
-);
-floor.rotation.x = -Math.PI * 0.5;
-floor.position.y = 0;
-scene.add(floor);
+scene.add(cubes);
 
 /**
  * Lights
